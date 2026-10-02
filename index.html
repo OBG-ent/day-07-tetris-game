@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tetris — Day 7 of my daily coding journey</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>TETRIS <span>🟪</span></h1>
+      <p class="sub">Day 7 · featured build of my daily coding journey</p>
+    </header>
+
+    <div class="game-area">
+      <!-- Main playfield -->
+      <div class="board-holder">
+        <canvas id="board" width="300" height="600"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <h2 id="overlay-title">GAME OVER</h2>
+          <p id="overlay-score"></p>
+          <button id="restart-btn">▶ Play again</button>
+        </div>
+      </div>
+
+      <!-- Side panel: score, level, next piece, hold -->
+      <aside class="panel">
+        <div class="stat"><label>SCORE</label><div id="score">0</div></div>
+        <div class="stat"><label>BEST</label><div id="best">0</div></div>
+        <div class="stat"><label>LEVEL</label><div id="level">1</div></div>
+        <div class="stat"><label>LINES</label><div id="lines">0</div></div>
+        <div class="stat"><label>NEXT</label><canvas id="next" width="120" height="120"></canvas></div>
+        <div class="stat"><label>HOLD (C)</label><canvas id="hold" width="120" height="120"></canvas></div>
+        <button id="pause-btn">⏸ Pause</button>
+      </aside>
+    </div>
+
+    <!-- Touch controls for mobile -->
+    <div class="touch">
+      <button data-k="left">◀</button>
+      <button data-k="right">▶</button>
+      <button data-k="rotate">⟳</button>
+      <button data-k="down">▼</button>
+      <button data-k="drop">⤓</button>
+    </div>
+
+    <footer class="help">
+      ← → move · ↓ soft drop · <b>Space</b> hard drop · ↑ rotate · <b>C</b> hold · <b>P</b> pause
+    </footer>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

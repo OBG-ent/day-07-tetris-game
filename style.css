@@ -1,0 +1,98 @@
+/* ---- Neon-arcade Tetris theme ---- */
+:root {
+  --bg: #0b1023;
+  --panel: #141b34;
+  --grid: #1e2a52;
+  --text: #e8ecff;
+  --muted: #8b93b8;
+  --accent: #a855f7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(1200px 800px at 50% -10%, #1b2450 0%, var(--bg) 60%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px 12px;
+}
+.wrap { width: 100%; max-width: 560px; }
+header { text-align: center; margin-bottom: 14px; }
+header h1 { font-size: 2rem; letter-spacing: 0.35em; text-shadow: 0 0 18px var(--accent); }
+header h1 span { letter-spacing: 0; }
+.sub { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+
+.game-area { display: flex; gap: 14px; justify-content: center; }
+.board-holder { position: relative; }
+canvas#board {
+  display: block;
+  background: #0d1330;
+  border: 2px solid var(--grid);
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.25);
+  max-width: 62vw;
+  height: auto;
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 130px;
+}
+.stat {
+  background: var(--panel);
+  border: 1px solid var(--grid);
+  border-radius: 10px;
+  padding: 8px 10px;
+  text-align: center;
+}
+.stat label { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; }
+.stat div { font-size: 1.3rem; font-weight: 800; margin-top: 2px; }
+.stat canvas { width: 100%; height: auto; margin-top: 4px; }
+
+button {
+  font-family: inherit;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.15); }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(11, 16, 35, 0.88);
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+}
+.overlay.hidden { display: none; }
+.overlay h2 { letter-spacing: 0.2em; text-shadow: 0 0 14px var(--accent); }
+
+/* Touch controls (hidden on desktop) */
+.touch { display: none; gap: 8px; margin-top: 14px; justify-content: center; }
+.touch button {
+  flex: 1;
+  max-width: 80px;
+  padding: 14px 0;
+  font-size: 1.3rem;
+  background: var(--panel);
+  border: 1px solid var(--grid);
+}
+.help { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 14px; }
+
+@media (pointer: coarse) {
+  .touch { display: flex; }
+  .help { display: none; }
+}
